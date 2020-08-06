@@ -5,6 +5,10 @@ import java.util.*;
 public class UserViewHistory {
     private Map<String,Integer> viewCount = new HashMap<String,Integer>();
 
+    public UserViewHistory() {}
+
+    public UserViewHistory(String field,Integer count){ viewCount.put(field,count); }
+
     public void setCount(String fieldName, Integer count){
         viewCount.put(fieldName,count);
     }

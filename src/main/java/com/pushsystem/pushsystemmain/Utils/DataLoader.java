@@ -25,11 +25,13 @@ public class DataLoader {
     public static void save(Connection connection){
         try {
             Statement statement = connection.createStatement();
+            statement.execute("truncate table query_frequency_info;");
             for (Map.Entry<String, UserViewHistory> entry : userViewHistoryHashMap.entrySet()) {
                 String userName = entry.getKey();
                 Map<String, Integer> viewCount = entry.getValue().getViewCount();
                 for (Map.Entry<String, Integer> innerEntry : viewCount.entrySet()) {
-                    statement.execute("insert into query_frequency_info (userName,fieldName,count) values (" + userName + "," + innerEntry.getKey() + "," + innerEntry.getValue() + ");");
+                    System.out.println("insert into query_frequency_info (userName,fieldName,`count`) values (`" + userName + "`,`" + innerEntry.getKey() + "`," + innerEntry.getValue() + ");");
+                    statement.execute("insert into query_frequency_info (userName,fieldName,`count`) values (\"" + userName + "\",\"" + innerEntry.getKey() + "\"," + innerEntry.getValue() + ");");
                 }
             }
         }

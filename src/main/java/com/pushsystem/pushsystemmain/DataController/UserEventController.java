@@ -2,6 +2,7 @@ package com.pushsystem.pushsystemmain.DataController;
 
 import com.pushsystem.pushsystemmain.Utils.DataLoader;
 import com.pushsystem.pushsystemmain.Utils.MySQLUtils;
+import com.pushsystem.pushsystemmain.Utils.UserViewHistory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,12 @@ public class UserEventController {
     @RequestMapping("/view")
     public void userView(@RequestParam(value="userID") String userID,
                          @RequestParam(value="field")  String field){
-        DataLoader.getUserViewHistoryHashMap().get(userID).view(field);
+        if(DataLoader.getUserViewHistoryHashMap().get(userID) != null) {
+            DataLoader.getUserViewHistoryHashMap().get(userID).view(field);
+        }
+        else{
+            DataLoader.getUserViewHistoryHashMap().put(userID,new UserViewHistory(field,1));
+        }
         DataLoader.save(MySQLUtils.getConnection());
     }
 
