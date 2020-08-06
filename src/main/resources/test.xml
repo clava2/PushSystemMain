@@ -1,0 +1,77 @@
+<data>
+    <message name="轴系信息" port="7001">
+        <field name="信息类型" length="8" type="info-type" dimension="1.0"/>
+        <field name="参数信息" length="8" type="normal" dimension="1.0"/>
+        <field name="告警信息" length="8" type="bit" dimension="0">
+            <bit name="温度告警" length="1" type="warn-bit" emergency="0">
+                <bit_meaning value="0" meaning="温度正常" type="normal"/>
+                <bit_meaning value="1" meaning="温度不正常" type="abnormal"/>
+            </bit>
+            <bit name="震动告警" length="1" type="warn-bit" emergency="9">
+                <bit_meaning value="0" meaning="震动可接受" type="normal"/>
+                <bit_meaning value="1" meaning="震动不可接受" type="abnormal"/>
+            </bit>
+            <bit name="备用" length="6"/>
+        </field>
+    </message>
+    <message name="动力信息" port="7002">
+        <field name="信息类型" length="8" type="info-type" dimension="1.0"/>
+        <field name="动力参数" length="8" type="normal" dimension="1.0"/>
+        <field name="告警信息" length="8" type="bit" dimension="0">
+            <bit name="温度告警" length="1" type="warn-bit" emergency="1">
+                <bit_meaning value="0" meaning="温度正常" type="normal"/>
+                <bit_meaning value="1" meaning="温度不正常" type="abnormal"/>
+            </bit>
+            <bit name="燃料告警" length="1" type="warn-bit" emergency="2">
+                <bit_meaning value="0" meaning="燃料足够" type="normal"/>
+                <bit_meaning value="1" meaning="燃料不足" type="abnormal"/>
+            </bit>
+            <bit name="备用" length="7"/>
+        </field>
+    </message>
+    <message name="电力信息" port="7003">
+        <field name="信息类型" length="8" type="info-type" dimension="1.0"/>
+        <field name="电力参数" length="8" type="normal" dimension="1.0"/>
+        <field name="告警信息" length="8" type="bit" dimension="0">
+            <bit name="温度告警" length="1" type="warn-bit" emergency="3">
+                <bit_meaning value="0" meaning="温度正常" type="normal"/>
+                <bit_meaning value="1" meaning="温度不正常" type="abnormal"/>
+            </bit>
+            <bit name="过载告警" length="1" type="warn-bit" emergency="4">
+                <bit_meaning value="0" meaning="线路未过载" type="normal"/>
+                <bit_meaning value="1" meaning="线路过载" type="abnormal"/>
+            </bit>
+            <bit name="备用" length="6"/>
+        </field>
+    </message>
+    <message name="导航信息" port="7004">
+        <field name="信息类型" length="8" type="info-type" dimension="1.0"/>
+        <field name="导航参数" length="8" type="normal" dimension="1.0"/>
+        <field name="告警信息" length="8" type="bit" dimension="0">
+            <bit name="信号强度告警" length="1" type="warn-bit" emergency="5">
+                <bit_meaning value="0" meaning="信号正常" type="normal"/>
+                <bit_meaning value="1" meaning="信号弱" type="abnormal"/>
+            </bit>
+            <bit name="设备故障告警" length="1" type="warn-bit" emergency="6">
+                <bit_meaning value="0" meaning="设备正常" type="normal"/>
+                <bit_meaning value="1" meaning="设备故障" type="abnormal"/>
+            </bit>
+            <bit name="备用" length="6"/>
+        </field>
+    </message>
+    <message name="气体监测信息" port="7005">
+        <field name="信息类型" length="8" type="info-type" dimension="1.0"/>
+        <field name="气体参数" length="8" type="normal" dimension="1.0"/>
+        <field name="告警信息" length="8" type="bit" dimension="0">
+            <bit name="CO2浓度告警" length="1" type="warn-bit" emergency="7">
+                <bit_meaning value="0" meaning="正常" type="normal"/>
+                <bit_meaning value="1" meaning="不正常" type="abnormal"/>
+            </bit>
+            <bit name="O2浓度告警" length="1" type="warn-bit" emergency="8">
+                <bit_meaning value="0" meaning="正常" type="normal"/>
+                <bit_meaning value="1" meaning="不正常" type="abnormal"/>
+            </bit>
+            <bit name="备用" length="6"/>
+        </field>
+    </message>
+</data>
